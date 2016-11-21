@@ -16,7 +16,10 @@ module.exports = function(file, api) {
     .find(j.ImportDefaultSpecifier)
     .filter((node) => {
       const libName = node.parentPath.parentPath.node.source.value;
-      const hasDefault = !!require(libName).default;
+      if (libName.startsWith('.')) { // only transform 3rd party libraries
+        return false;
+      }
+      const hasDefault = !!require(libName).default; // check the 3rd party lib doesnt already have a default export
       return !hasDefault;
     })
     .replaceWith(({node}) => {
