@@ -1,3 +1,3 @@
 jest.autoMockOff();
 const defineTest = require('jscodeshift/dist/testUtils').defineTest;
-defineTest(__dirname, 'ConvertDefaultImports');
+defineTest(__dirname, 'convert-default-imports');

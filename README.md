@@ -17,5 +17,5 @@ It will skip transforming modules not in node_modules or that already have a def
 
 Usage
 ```
-jscodeshift -t ConvertDefaultTransforms.js <file>
+jscodeshift -t convert-default-imports.js <file>
 ```
